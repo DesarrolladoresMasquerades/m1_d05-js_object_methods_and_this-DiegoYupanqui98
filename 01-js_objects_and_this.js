@@ -3,12 +3,8 @@
 // This is a funciton that will be attached to the GLOBAL object,
 //therefore the "this" keyword will point to the global object
 function sayHelloFloating(){
-    console.log("this object of a floating function", this)
-    console.log("this.firstName", this.firstName)
+    return "Salut " + this.firstName;
 }
-
-sayHelloFloating()
-
 
 const person1 = {
     firstName: "Jordi",
@@ -18,7 +14,6 @@ const person1 = {
         console.log(this.firstName)
     }
 }
-
 
 //This function is attached to a "person1" object and the "this" keyword
 //will refer to the "person1" object.
@@ -34,4 +29,19 @@ const person2 = {
     }
 }
 
-person2.sayHello()
+console.log(Object.keys(person2))
+
+
+const abstractPerson = {
+    sayHello(){
+      return `Hello my name is ${this.name}`
+    },
+    tellAge(){
+    return `I am ${this.age} years young`
+    }
+}
+
+//console.log("abstractPerson", abstractPerson.tellAge())
+
+console.log(abstractPerson.tellAge.bind(person2)())
+console.log(sayHelloFloating.bind(person1)())
