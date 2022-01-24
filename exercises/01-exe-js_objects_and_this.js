@@ -20,17 +20,20 @@ const chuck = {
       // Hint: to get the birthDate, you can do: this.birthDate
       // Hint: you can subtract 2 dates and you get the number of milliseconds
       // Hint: convert the milliseconds to years 
+      return new Date().getFullYear()- chuck.birthDate.getFullYear();
+
     },
     addFriend: function(name) {
       // TODO (don't use return statement)
       // add a name to the friends array. The friend name is passed as a parameter to the function
+      this.friends.push(name);
     },
     getRandomFriend: function() {
       // TODO. return a random friend name from the friends array
+      return this.friends[Math.floor(Math.random()*this.friends.length)];
     }
   };
   
-  chuck.displayInfo();
   
   console.log('getAge', chuck.getAge()); // Should return 81 if you are in 2021
   
